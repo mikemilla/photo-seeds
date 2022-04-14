@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:crypto/crypto.dart';
 import 'package:coinslib/coinslib.dart';
 import 'package:bip39/bip39.dart' as bip39;
+import 'package:flutter/services.dart';
 
 import 'package:image_picker/image_picker.dart';
 
@@ -20,11 +21,13 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final ImagePicker _picker = ImagePicker();
+
+  // final NetworkType _network = testnet;
   final NetworkType _network = bitcoin;
 
   HDWallet? _wallet;
   bool _isLoading = false;
-  int _derivation = 0;
+  // int _derivation = 0;
 
   Future<List<String>> _imagesToHashes(List<XFile> images) {
     return Future.wait(images.map(
@@ -118,21 +121,28 @@ class _MainPageState extends State<MainPage> {
   // }
 
   Widget _buildItem(String title, String value) {
-    return Container(
-      padding: const EdgeInsets.all(30),
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: Colors.black12),
+    return InkWell(
+      onTap: () async {
+        Clipboard.setData(ClipboardData(text: value)).then((_) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$title copied to clipboard')));
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.all(30),
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          border: Border(
+            bottom: BorderSide(color: Colors.black12),
+          ),
         ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: const TextStyle(color: Colors.black38)),
-          Container(height: 8),
-          Text(value),
-        ],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: const TextStyle(color: Colors.black38)),
+            Container(height: 8),
+            Text(value),
+          ],
+        ),
       ),
     );
   }
@@ -144,16 +154,10 @@ class _MainPageState extends State<MainPage> {
         title: const Text('Photos to Bitcoin Wallet'),
       ),
       body: Builder(builder: (context) {
-        if (_isLoading) {
-          return _buildLoading();
-        } else {
-          return _buildContent();
-        }
+        return _isLoading ? _buildLoading() : _buildContent();
       }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await _createWalletFromPhotos();
-        },
+        onPressed: () => _createWalletFromPhotos(),
         tooltip: 'Import Wallet',
         child: const Icon(Icons.account_balance_wallet),
       ), // This trailing comma makes auto-formatting nicer for build methods.
@@ -161,7 +165,6 @@ class _MainPageState extends State<MainPage> {
   }
 
   Future<void> _createWalletFromPhotos() async {
-
     setState(() {
       _isLoading = true;
     });
@@ -180,11 +183,9 @@ class _MainPageState extends State<MainPage> {
     final wallet = _createWalletFromHashes(hashes);
 
     setState(() {
-      _derivation = 0;
+      // _derivation = 0;
       _wallet = wallet;
       _isLoading = false;
     });
-
   }
-
 }
