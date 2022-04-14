@@ -2,4 +2,4 @@
 
 A more human way to remember bitcoin wallets
 
-![demo](https://raw.githubusercontent.com/mikemilla/photo-seeds/master/demo.gif=x320)
+[<img src="https://raw.githubusercontent.com/mikemilla/photo-seeds/master/demo.gif" width="250"/>](https://raw.githubusercontent.com/mikemilla/photo-seeds/master/demo.gif)
