@@ -1,5 +1,5 @@
 # Photo Seeds 🖼 🌱
 
-A more human way to remember bitcoin wallets
+An easier way for humans to login to bitcoin wallets
 
 ![demo](https://raw.githubusercontent.com/mikemilla/photo-seeds/master/demo.gif)

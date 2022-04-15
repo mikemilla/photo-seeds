@@ -27,7 +27,6 @@ class _MainPageState extends State<MainPage> {
 
   HDWallet? _wallet;
   bool _isLoading = false;
-  // int _derivation = 0;
 
   Future<List<String>> _imagesToHashes(List<XFile> images) {
     return Future.wait(images.map(
@@ -68,7 +67,6 @@ class _MainPageState extends State<MainPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // _buildHeader(),
               _buildItem('Pay-to-public-key-hash address', _wallet?.address ?? ''),
               _buildItem('Public key', _wallet?.pubKey ?? ''),
               _buildItem('Private key', _wallet?.privKey ?? ''),
@@ -79,46 +77,6 @@ class _MainPageState extends State<MainPage> {
       ),
     );
   }
-
-  // Widget _buildHeader() {
-  //   return Container(
-  //     padding: const EdgeInsets.all(30),
-  //     decoration: const BoxDecoration(
-  //       border: Border(
-  //         bottom: BorderSide(color: Colors.black12),
-  //       ),
-  //     ),
-  //     child: Row(
-  //       children: [
-  //         IconButton(
-  //           icon: const Icon(Icons.exposure_minus_1),
-  //           tooltip: 'Decrease wallet derivation',
-  //           onPressed: () {
-  //             setState(() {
-  //               _derivation = max(_derivation - 1, 0);
-  //               _wallet = _wallet?.derive(_derivation);
-  //             });
-  //           },
-  //         ),
-  //         Expanded(
-  //           child: Center(
-  //             child: Text('Wallet Index $_derivation'),
-  //           ),
-  //         ),
-  //         IconButton(
-  //           icon: const Icon(Icons.exposure_plus_1),
-  //           tooltip: 'Increase wallet derivation',
-  //           onPressed: () {
-  //             setState(() {
-  //               _derivation += 1;
-  //               _wallet = _wallet?.derive(_derivation);
-  //             });
-  //           },
-  //         )
-  //       ],
-  //     ),
-  //   );
-  // }
 
   Widget _buildItem(String title, String value) {
     return InkWell(
@@ -183,7 +141,6 @@ class _MainPageState extends State<MainPage> {
     final wallet = _createWalletFromHashes(hashes);
 
     setState(() {
-      // _derivation = 0;
       _wallet = wallet;
       _isLoading = false;
     });
