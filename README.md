@@ -32,10 +32,6 @@ Photo seeds gives people an easier way to remember how to login to a crypto wall
 
 &nbsp;
 
----
-
-&nbsp;
-
 ## Are Photo Seeds secure?
 
 The image to hash function is probably more secure than a single word, however, that doesn't mean that this is overall more secure than traditional seed phrases, in fact, it probably is less secure. There are other ways someone could try and steal another user's seeds.
@@ -48,21 +44,15 @@ If the idea of converting more humanlike things into seed phrases catches on, an
 
 ## How can we make idea even better?
 
-&nbsp;
-
 <b>💡 Use bitmaps instead of files</b>
 
 Currently, the image files themselves are hashed. This is ok, but using the bitmaps of the images without the metadata of the files and determining the entropy of the bitmap may be better. The reason I think that approach might be better is because there is a higher chance of that working across Apple's iCloud and Google Photos. Images without all the filemeta data will have a different hash output and the ideal user experience would be cross platform while still being highly secure.
-
-&nbsp;
 
 <b>💡 Create a library that is easy to add to apps</b>
 
 This repo is just a proof of concept of this idea. To make this available for actual usage in wallets, we need to create a library and pub.dev, npm, gradle, swift package manager, or cocoapods package.
 
 The security concerns of this are mentioned above.
-
-&nbsp;
 
 <b>💡 Support other blockchains</b>
 
