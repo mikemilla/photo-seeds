@@ -48,11 +48,15 @@ If the idea of converting more humanlike things into seed phrases catches on, an
 
 Currently, the image files themselves are hashed. This is ok, but using the bitmaps of the images without the metadata of the files and determining the entropy of the bitmap may be better. The reason I think that approach might be better is because there is a higher chance of that working across Apple's iCloud and Google Photos. Images without all the filemeta data will have a different hash output and the ideal user experience would be cross platform while still being highly secure.
 
+&nbsp;
+
 <b>💡 Create a library that is easy to add to apps</b>
 
 This repo is just a proof of concept of this idea. To make this available for actual usage in wallets, we need to create a library and pub.dev, npm, gradle, swift package manager, or cocoapods package.
 
 The security concerns of this are mentioned above.
+
+&nbsp;
 
 <b>💡 Support other blockchains</b>
 
