@@ -2,13 +2,7 @@
 
 An easier way for humans to create and recover wallets
 
-&nbsp;
-
 [<img src="https://raw.githubusercontent.com/mikemilla/photo-seeds/master/demo.gif" width="250"/>](https://raw.githubusercontent.com/mikemilla/photo-seeds/master/demo.gif)
-
-&nbsp;
-
----
 
 &nbsp;
 
@@ -21,10 +15,6 @@ An easier way for humans to create and recover wallets
 4. Run: `flutter run`
 
 This demo runs on iOS and Android and uses a few common libraries to make it functional. See the `pubspec.yaml` for the libraries used.
-
-&nbsp;
-
----
 
 &nbsp;
 
@@ -53,10 +43,6 @@ The image to hash function is probably more secure than a single word, however, 
 Gaining access to someone's photo library via iCloud or Google Photos, downloading all the images, and writing a brute force script would eventually try all the image hash combinations could steal another user's seeds. This isn't ideal, but probably is ok for a decently large number of people. Apple and Google have very robust security measures and Photo Seeds indirectly depend on their security procautions.
 
 If the idea of converting more humanlike things into seed phrases catches on, an open source, publicly trusted library for this type of thing is probably needed. At this point, giving developers access to the user's photo files is a security concern. How do we prevent wallet developers from stealing all the photo files and trying the combinations to steal user's wallets? Maybe we create a token with voting rights to make commits to the library? Someone probably needs to moderate what is safe for developers to use in their apps so people's can trust this type of feature.
-
-&nbsp;
-
----
 
 &nbsp;
 
@@ -89,10 +75,6 @@ This version only supports Bitcoin wallets, but Ethereum, Solana, etc are all po
 What are other things humans can relate more to than random words? Some example could be quotes, lyrics, video timestamps, tweets, links on the web, hex colors, drawing images and having device side machine learning determine the object or something else!
 
 There are plenty of other things humans are more likely to remember than seed phrases. Finding the right balance of easy to remember, low friction user experience to recovery and security is the challenge.
-
-&nbsp;
-
----
 
 &nbsp;
 
